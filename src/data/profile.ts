@@ -43,30 +43,30 @@ export type Profile = {
 }
 
 export const profile: Profile = {
-  name: 'Your Name',
-  firstName: 'Your Name',
-  handle: '@yourhandle',
-  role: 'PLACEHOLDER - your title',
+  name: 'Nash Magbanua',
+  firstName: 'Nash',
+  handle: '@nashmagbanua',
+  role: 'Developer / Automation Builder',
   avatarSrc: '/avatar.svg',
-  verifiedLabel: 'PLACEHOLDER - what the tick means (e.g. a certification)',
-  email: 'you@example.com',
-  location: 'PLACEHOLDER - your city or timezone',
+  verifiedLabel: 'Independent Developer',
+  email: 'nashmagbanua@gmail.com',
+  location: 'Batangas, Philippines',
   stats: [
-    { value: '0 yrs', label: 'PLACEHOLDER' },
-    { value: '#000', label: 'PLACEHOLDER' },
-    { value: 'GMT+0', label: 'PLACEHOLDER' },
+    { value: 'GMT+8', label: 'Timezone' },
+    { value: 'Web', label: 'Development' },
+    { value: 'Auto', label: 'Workflows' },
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Your headline here.', line2: 'Keep it short.' },
+  displayName: { line1: 'Nash', line2: 'Magbanua' },
   hero: {
-    body: 'PLACEHOLDER - one line on what you do and who you do it for.',
+    body: 'I build web apps, internal tools, and automation workflows to solve practical problems. Most of my projects start with a real-world friction point and turn into clean, dependable software.',
     portraitSrc: '/avatar.svg',
-    portraitAlt: 'Portrait placeholder',
+    portraitAlt: 'Portrait of Nash Magbanua',
   },
   socials: [
-    { label: 'Facebook profile', href: '#', iconPath: '/icons/facebook.svg' },
-    { label: 'LinkedIn profile', href: '#', iconPath: '/icons/linkedin.svg' },
-    { label: 'Discord profile', href: '#', iconPath: '/icons/discord.svg' },
+    { label: 'GitHub profile', href: 'https://github.com/nashmagbanua', iconPath: '/icons/ai/github.svg' },
+    { label: 'LinkedIn profile', href: 'https://www.linkedin.com/in/nash-magbanua-560077437/', iconPath: '/icons/linkedin.svg' },
+    { label: 'Facebook profile', href: 'https://www.facebook.com/profile.php?id=61585308898126', iconPath: '/icons/facebook.svg' },
   ],
 }

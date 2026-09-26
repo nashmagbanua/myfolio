@@ -1,30 +1,23 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'node:path'
+import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
   server: {
-    port: 5173,
+    host: '0.0.0.0',
+    port: 3000,
     strictPort: true,
-    // Dev-time security headers. In production these MUST be set at the
-    // reverse proxy (Nginx) along with CSP, HSTS, and a stricter
-    // Permissions-Policy. Do not duplicate them in Nginx config blindly -
-    // some headers (e.g. CSP) need values that differ between dev and prod.
+    allowedHosts: true,
     headers: {
-      // SAMEORIGIN (not DENY) so the Funnels + SamplePlan modals can
-      // iframe their own /funnels/*.html and /sample-automation-plan.html
-      // documents. Cross-origin framing is still blocked.
-      'X-Frame-Options': 'SAMEORIGIN',
       'X-Content-Type-Options': 'nosniff',
       'Referrer-Policy': 'strict-origin-when-cross-origin',
       'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()',
-      'Cross-Origin-Opener-Policy': 'same-origin',
     },
   },
   build: {

@@ -1,0 +1,8 @@
+{
+  "name": "MyFolio - Interactive Portfolio",
+  "description": "Interactive developer portfolio featuring 3D contour visuals, bento layout, 3D carousel showcase, and responsive mobile design.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
