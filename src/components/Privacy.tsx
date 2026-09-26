@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { profile } from '@/data/profile'
 
 /**
- * Privacy Policy - PLACEHOLDER. Legal text has to describe YOUR site and what
- * it collects, so none is supplied. Write it (or have a lawyer or a policy
- * generator write it) and paste it into the sections below.
+ * Privacy Policy for Nash Magbanua's personal portfolio.
  */
 export default function Privacy() {
   const navigate = useNavigate()
@@ -23,20 +21,20 @@ export default function Privacy() {
         </button>
 
         <h1 className="legal-page__title">Privacy Policy</h1>
-        <p className="legal-page__updated">Last updated: PLACEHOLDER date</p>
+        <p className="legal-page__updated">Last updated: September 2026</p>
 
         <div className="legal-page__body">
           <h2>Who this covers</h2>
-          <p>PLACEHOLDER - tell me what to put here: who runs this site and which sites this policy applies to.</p>
+          <p>This policy applies to the personal developer portfolio of Nash Magbanua (MYFOLIO) accessible via this web application.</p>
 
           <h2>What is collected</h2>
-          <p>PLACEHOLDER - tell me what to put here: what the contact form and any analytics collect.</p>
+          <p>This website does not use tracking cookies, analytics pixels, or profiling scripts. When you submit the contact form, the information you provide (your name, email address, and message) is captured solely to communicate with you.</p>
 
           <h2>How it is used</h2>
-          <p>PLACEHOLDER - tell me what to put here: what you do with that data and who else sees it.</p>
+          <p>Information received through the contact form is used exclusively to evaluate potential projects, discuss workflows, and respond to your messages. Your contact details are never shared with or sold to third parties.</p>
 
           <h2>How long it is kept</h2>
-          <p>PLACEHOLDER - tell me what to put here: retention periods and how to ask for deletion.</p>
+          <p>Direct inquiries and emails are retained only as long as needed for ongoing correspondence and project coordination. You may request the deletion of your correspondence at any time by sending an email.</p>
 
           <h2>Contact</h2>
           <p>

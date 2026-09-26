@@ -16,7 +16,7 @@ import ThemeButton from './ThemeButton'
 export function HomeProfile() {
   return (
     <header className="hprofile">
-      <img className="hprofile__avatar" src={profile.avatarSrc} alt="" width={56} height={56} />
+      <img className="hprofile__avatar" src={profile.avatarSrc} alt={profile.name} width={56} height={56} />
       <div className="hprofile__who">
         <span className="hprofile__name">
           {profile.name}
@@ -45,11 +45,11 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'PLACEHOLDER - projects headline', desc: 'Tell me what to put here.', img: '/placeholders/project-1.jpg' },
-  { n: '02', label: 'Services', to: '/services', title: 'PLACEHOLDER - services headline', desc: 'Tell me what to put here.', Icon: Stack, dark: true },
-  { n: '03', label: 'Showcase', to: '/showcase', title: 'PLACEHOLDER - your flagship', desc: 'Tell me what to put here.', Icon: Coffee, dark: true, accent: true },
-  { n: '04', label: 'Testimonials', to: '/testimonials', title: 'PLACEHOLDER - testimonials headline', desc: 'Tell me what to put here.', img: '/placeholders/testimonial-1.jpg' },
-  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'PLACEHOLDER - one line about you.', img: profile.avatarSrc },
+  { n: '01', label: 'Projects', to: '/projects', title: 'Web Apps & Utilities', desc: 'Internal portals, calculators, and monitoring tools.', img: '/placeholders/project-preview-myabn.jpg' },
+  { n: '02', label: 'Services', to: '/services', title: 'Areas of Focus', desc: 'Web applications, database storage, and automated workflows.', Icon: Stack, dark: true },
+  { n: '03', label: 'Showcase', to: '/showcase', title: 'Interactive Showcase', desc: 'Hands-on workflow logic and responsive UI architecture.', Icon: Coffee, dark: true, accent: true },
+  { n: '04', label: 'Testimonials', to: '/testimonials', title: 'Operational Notes', desc: 'Production applications built around real workflows.', img: '/placeholders/project-preview-powercon.jpg' },
+  { n: '05', label: 'About', to: '/about', title: `Hi, I'm ${profile.firstName}.`, desc: 'Independent developer & automation builder based in Batangas.', img: profile.avatarSrc },
 ] as const
 
 export function HomeExplore() {
@@ -80,18 +80,18 @@ export function HomeExplore() {
       </ul>
 
       <div className="hsec">
-        <h2 className="hsec__title">What clients say</h2>
-        <Link to="/testimonials" className="hsec__aside">See all</Link>
+        <h2 className="hsec__title">Engineering Focus</h2>
+        <Link to="/about" className="hsec__aside">About</Link>
       </div>
-      <Link to="/testimonials" className="hproof">
+      <Link to="/about" className="hproof">
         <span className="hproof__thumb">
-          <img src="/placeholders/testimonial-1.jpg" alt="" width={96} height={96} loading="lazy" />
+          <img src={profile.avatarSrc} alt="" width={96} height={96} loading="lazy" />
           <span className="hproof__play" aria-hidden="true"><Play size={14} weight="fill" /></span>
         </span>
         <span className="hproof__copy">
-          <span className="hproof__kicker">Client testimonial · 0:00</span>
-          <span className="hproof__title">PLACEHOLDER - tell me what to put here: a one-line teaser for your best testimonial.</span>
-          <span className="hproof__meta">PLACEHOLDER - client role</span>
+          <span className="hproof__kicker">Core Philosophy</span>
+          <span className="hproof__title">Building software around real problems — turning manual bottlenecks into clear, dependable tools.</span>
+          <span className="hproof__meta">Independent Developer · Batangas, PH</span>
         </span>
       </Link>
     </>

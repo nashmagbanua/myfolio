@@ -9,12 +9,7 @@ import Autopilot, { TOOLS } from '@/components/Autopilot'
  * Three bands, top to bottom: your three-step method (on a dark plate so it
  * is the first thing the eye lands on), the five services as cards that carry
  * the marks of what each one is built with, and the live automation demo
- * scaled into whatever height is left. Same object language as Home and
- * Projects: the glass, the bento card, plated marks, orange for the index
- * and the accent.
- *
- * Every string below is a PLACEHOLDER. Replace it, or hand this file to your
- * AI assistant and tell it what to put in each spot.
+ * scaled into whatever height is left.
  */
 
 /* ---------- The method ---------- */
@@ -30,42 +25,38 @@ type Stage = {
 const STAGES: Stage[] = [
   {
     index: '01',
-    label: 'Step 1',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Understand',
+    body: 'Start with the workflow, operational bottleneck, and desired result before writing code.',
     Icon: MagnetStraight,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
+    chips: ['Workflow Analysis', 'Requirements', 'Data Structure'],
   },
   {
     index: '02',
-    label: 'Step 2',
-    body: 'PLACEHOLDER - one line on what happens in this step.',
+    label: 'Build',
+    body: 'Design and build the responsive interface, application logic, and database flow around actual operator needs.',
     Icon: Timer,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['React & TS', 'Database Setup', 'Application Logic'],
   },
   {
     index: '03',
-    label: 'Step 3',
-    body: 'PLACEHOLDER - one line on the result the client gets.',
+    label: 'Test & Deploy',
+    body: 'Test edge cases, verify calculations and record workflows, and deploy a stable, maintainable tool.',
     Icon: Trophy,
-    chips: ['Tag 1', 'Tag 2', 'Tag 3'],
+    chips: ['Validation', 'Vercel Deployment', 'Operator Ready'],
   },
 ]
 
 /* ---------- The services ---------- */
 
-// Example tool marks from /public/icons. Swap for the tools you actually use.
-const GHL = '/icons/gohighlevel.png'
+// Verified tool marks from /public/icons/ai supporting Nash's actual stack.
 const REACT = '/icons/ai/react.svg'
 const TAILWIND = '/icons/ai/tailwindcss.svg'
 const VITE = '/icons/ai/vite.svg'
-const CLOUDFLARE = '/icons/ai/cloudflare.svg'
-const N8N = '/icons/ai/n8n.svg'
-const OPENAI = '/icons/openai.svg'
-const GWS = '/icons/googleworkspace.svg'
-const SLACK = '/icons/slack.svg'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const EXPO = '/icons/ai/expo.svg'
+const POSTGRES = '/icons/ai/postgresql.svg'
+const NODEJS = '/icons/ai/nodedotjs.svg'
+const GITHUB = '/icons/ai/github.svg'
 const CHROME = '/icons/ai/googlechrome.svg'
+const PLAY = '/icons/ai/googleplay.svg'
 
 type Service = {
   index: string
@@ -76,49 +67,66 @@ type Service = {
   bullets: string[]
 }
 
-const BULLETS = ['PLACEHOLDER benefit 1', 'PLACEHOLDER benefit 2', 'PLACEHOLDER benefit 3']
-const SERVICE_DESC = 'PLACEHOLDER - one line on this service.'
-
 const SERVICES: Service[] = [
   {
     index: '01',
-    title: 'Service One',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, REACT, TAILWIND],
-    bullets: BULLETS,
+    title: 'Web Application Development',
+    description: 'Custom, responsive web applications built with modern frontend frameworks and clean architecture.',
+    chip: 'Web & PWA',
+    logos: [REACT, VITE, TAILWIND],
+    bullets: [
+      'React & TypeScript single-page applications',
+      'Responsive layouts tailored for desktop and mobile',
+      'Clean, maintainable component architecture',
+    ],
   },
   {
     index: '02',
-    title: 'Service Two',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, N8N, OPENAI],
-    bullets: BULLETS,
+    title: 'Internal Tools & Portals',
+    description: 'Practical workforce portals and operational utilities that turn manual routines into streamlined digital processes.',
+    chip: 'Operations',
+    logos: [REACT, POSTGRES, VITE],
+    bullets: [
+      'Employee access and workplace community portals',
+      'Custom logsheets, timekeeping, and visitor records',
+      'Operator-friendly interfaces with clear feedback',
+    ],
   },
   {
     index: '03',
-    title: 'Service Three',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [GHL, GWS, SLACK],
-    bullets: BULLETS,
+    title: 'Dashboards & Monitoring',
+    description: 'Clean operational dashboards for recording, viewing, and comparing telemetry, equipment, and production readings.',
+    chip: 'Telemetry',
+    logos: [REACT, TAILWIND, GITHUB],
+    bullets: [
+      'Current vs. previous reading comparisons',
+      'Calculated outputs and operational status indicators',
+      'Historical logsheet review and trend tracking',
+    ],
   },
   {
     index: '04',
-    title: 'Service Four',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [REACT, VITE, CLOUDFLARE],
-    bullets: BULLETS,
+    title: 'Database-Backed Applications',
+    description: 'Reliable data storage and synchronization so records can be captured, retrieved, and organized securely.',
+    chip: 'Data Storage',
+    logos: [POSTGRES, REACT, NODEJS],
+    bullets: [
+      'Structured relational and document databases',
+      'Supabase and Firebase Realtime Database setup',
+      'Reliable record storage with session retake logic',
+    ],
   },
   {
     index: '05',
-    title: 'Service Five',
-    description: SERVICE_DESC,
-    chip: 'PLACEHOLDER',
-    logos: [CLAUDE_CODE, EXPO, CHROME],
-    bullets: BULLETS,
+    title: 'Automation & Workflow Logic',
+    description: 'Application workflows that reduce manual calculations, handle repetitive steps, and link operational data.',
+    chip: 'Workflows',
+    logos: [CHROME, PLAY, GITHUB],
+    bullets: [
+      'Formula-driven operational calculators',
+      'Automated data validation and status triggers',
+      'PWA and Capacitor mobile application packaging',
+    ],
   },
 ]
 
@@ -143,10 +151,10 @@ export default function ServicesGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Services</span>
         <h1 className="pgrid__title" id="services-title">
-          Your services headline, in one short line.
+          Practical software development for real-world operations.
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line on what you offer.
+          I design and build dependable web applications, internal utilities, and automated operational pipelines focused on solving everyday workflow bottlenecks.
         </p>
       </header>
 
@@ -155,14 +163,14 @@ export default function ServicesGrid() {
             in order on the right with a signal running them. */}
         <div className="sgrid__method" aria-labelledby="method-title">
           <div className="sgrid__method-copy">
-            <span className="sgrid__method-eyebrow">Your Method</span>
+            <span className="sgrid__method-eyebrow">Process</span>
             <h2 className="sgrid__method-title" id="method-title">
               One. Two. Three.
               <br />
-              <span>Your method, in three steps.</span>
+              <span>From workflow problem to dependable tool.</span>
             </h2>
             <p className="sgrid__method-sub">
-              PLACEHOLDER - one sentence on why your method works.
+              A straightforward, practical development approach focused on clarity, dependability, and solving the actual problem.
             </p>
           </div>
 
@@ -191,8 +199,8 @@ export default function ServicesGrid() {
         {/* Five cards, each carrying the marks of what it is built with. */}
         <div className="sgrid__offers">
           <div className="sgrid__offers-head">
-            <h2 className="sgrid__offers-title">Your services, listed.</h2>
-            <p className="sgrid__offers-sub">PLACEHOLDER - one short nudge.</p>
+            <h2 className="sgrid__offers-title">Areas of Focus</h2>
+            <p className="sgrid__offers-sub">Practical solutions tailored to your operational needs.</p>
           </div>
           <ul className="bento sgrid__services" role="list">
             {SERVICES.map((s) => (
@@ -224,10 +232,10 @@ export default function ServicesGrid() {
         <div className="sgrid__flow">
           <header className="sgrid__flow-head">
             <div className="sgrid__flow-copy">
-              <span className="sgrid__flow-eyebrow">Live automation</span>
-              <h2 className="sgrid__flow-title">Your automation headline.</h2>
+              <span className="sgrid__flow-eyebrow">Workflow Architecture</span>
+              <h2 className="sgrid__flow-title">Operational logic in action.</h2>
               <p className="sgrid__flow-sub">
-                PLACEHOLDER - tell me what to put here: one sentence on what this example automation does for a client.
+                Demonstrating how structured triggers, validation gates, and automated notifications link together in real software.
               </p>
             </div>
             <ul className="sgrid__flow-tools" role="list" aria-label="Tools that power this flow">

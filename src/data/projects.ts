@@ -17,82 +17,51 @@ export type AppProject = {
 /** @deprecated use AppProject */
 export type MobileApp = AppProject
 
-/**
- * Your apps. Every value is a PLACEHOLDER. Screenshots live in
- * public/placeholders/ - swap in your own (960x514 works well).
- */
-const STATS: AppStat[] = [
-  { value: '0', label: 'Stat one' },
-  { value: '0', label: 'Stat two' },
-  { value: '0', label: 'Stat three' },
-]
-
-const DESC = 'PLACEHOLDER - tell me what to put here: what the app does, who it is for, and where it is published.'
-
 export const mobileApps: MobileApp[] = [
   {
-    name: 'App Name One',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-1.jpg',
+    name: 'MYABN — Company Employee Portal & Community',
+    tagline: 'Internal workforce access, timekeeping, and employee community platform.',
+    description:
+      'An internal employee portal bringing together access management, attendance timekeeping, visitor records, company announcements, notifications, and an employee community with posts, photos, comments, and mentions in a unified web and mobile application.',
+    imageSrc: '/placeholders/project-preview-myabn.jpg',
     imagePosition: '50% 30%',
     accentColor: '#2563EB',
-    stats: STATS,
-    badge: 'Badge',
+    badge: 'Portal & PWA',
+    stats: [
+      { value: 'React + TS', label: 'Frontend' },
+      { value: 'Supabase', label: 'Backend' },
+      { value: 'Capacitor', label: 'Platform' },
+    ],
   },
   {
-    name: 'App Name Two',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-2.jpg',
-    accentColor: '#7C3AED',
-    stats: STATS,
-    badge: 'Badge',
+    name: 'ABN GPM Calculator',
+    tagline: 'Operational flow rate calculation and deepwell monitoring utility.',
+    description:
+      'A practical utility built for operators to calculate and interpret production flow measurements using duration-based formulas, CWS indicator checks, and Supabase record logging with seamless retake workflows.',
+    imageSrc: '/placeholders/project-preview-gpm.jpg',
+    accentColor: '#0284C7',
+    badge: 'Internal Tool',
+    stats: [
+      { value: 'React + TS', label: 'Frontend' },
+      { value: 'Supabase', label: 'Storage' },
+      { value: 'Vercel', label: 'Hosting' },
+    ],
   },
   {
-    name: 'App Name Three',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/app-3.jpg',
+    name: 'ABN PowerCon',
+    tagline: 'Utility monitoring and equipment power reading logsheet system.',
+    description:
+      'A utility monitoring application designed for capturing, reviewing, and comparing power and equipment readings over time, featuring structured logsheet entry workflows and derived calculation tracking.',
+    imageSrc: '/placeholders/project-preview-powercon.jpg',
     accentColor: '#16A34A',
-    stats: STATS,
-    badge: 'Badge',
+    badge: 'Utility Monitor',
+    stats: [
+      { value: 'React + TS', label: 'Frontend' },
+      { value: 'Firebase', label: 'Realtime DB' },
+      { value: 'Vercel', label: 'Hosting' },
+    ],
   },
 ]
 
-export const webApps: AppProject[] = [
-  {
-    name: 'Web App One',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    accentColor: '#0EA5E9',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Two',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    accentColor: '#EF4444',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Three',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/project-3.jpg',
-    accentColor: '#0891B2',
-    stats: STATS,
-    badge: 'Badge',
-  },
-  {
-    name: 'Web App Four',
-    tagline: 'PLACEHOLDER - one-line tagline.',
-    description: DESC,
-    imageSrc: '/placeholders/project-4.jpg',
-    accentColor: '#F59E0B',
-    stats: STATS,
-    badge: 'Badge',
-  },
-]
+export const webApps: AppProject[] = mobileApps
+

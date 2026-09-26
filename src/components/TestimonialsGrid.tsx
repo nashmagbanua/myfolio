@@ -38,8 +38,8 @@ const CLIPS: Clip[] = [
     index: '01',
     src: '',
     poster: '/placeholders/testimonial-1.jpg',
-    duration: '0:00',
-    kicker: 'Client testimonial',
+    duration: 'Preview',
+    kicker: 'Engineering Walkthrough',
     width: 720,
     height: 1080,
   },
@@ -48,8 +48,8 @@ const CLIPS: Clip[] = [
     index: '02',
     src: '',
     poster: '/placeholders/testimonial-2.jpg',
-    duration: '0:00',
-    kicker: 'Client testimonial',
+    duration: 'Preview',
+    kicker: 'System Demonstration',
     width: 720,
     height: 1080,
   },
@@ -71,32 +71,32 @@ type Client = {
 const CLIENTS: Client[] = [
   {
     index: '01',
-    name: 'Client Name 1',
-    role: 'PLACEHOLDER ROLE',
+    name: 'MYABN Portal',
+    role: 'Internal Workforce System',
     daily:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client day to day.',
-    work: ['Tag', 'Tag', 'Tag'],
-    logoSrc: '/placeholders/logo.svg',
+      'Unified employee platform bringing together workforce access management, attendance timekeeping, visitor records, and community feed updates.',
+    work: ['React', 'Supabase', 'Capacitor'],
+    logoSrc: '/icons/ai/react.svg',
     Icon: Gauge,
   },
   {
     index: '02',
-    name: 'Client Name 2',
-    role: 'PLACEHOLDER ROLE',
+    name: 'ABN GPM Calculator',
+    role: 'Operational Flow Utility',
     daily:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client day to day.',
-    work: ['Tag', 'Tag', 'Tag'],
-    logoSrc: '/placeholders/logo.svg',
+      'Calculation utility built for operators to measure water production flow rates using duration-based formulas, CWS status indicators, and record logging.',
+    work: ['TypeScript', 'Vite', 'Supabase'],
+    logoSrc: '/icons/ai/vite.svg',
     Icon: Robot,
   },
   {
     index: '03',
-    name: 'Client Name 3',
-    role: 'PLACEHOLDER ROLE',
+    name: 'ABN PowerCon',
+    role: 'Equipment Telemetry System',
     daily:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on what you run or build for this client day to day.',
-    work: ['Tag', 'Tag', 'Tag'],
-    logoSrc: '/placeholders/logo.svg',
+      'Utility monitoring application for logging, reviewing, and comparing power and equipment readings over time with automated delta tracking.',
+    work: ['React', 'Firebase', 'Tailwind'],
+    logoSrc: '/icons/ai/tailwindcss.svg',
     Icon: Code,
   },
 ]
@@ -118,12 +118,12 @@ export default function TestimonialsGrid() {
   return (
     <section className="pgrid tgrid" aria-labelledby="testimonials-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Testimonials</span>
+        <span className="pgrid__eyebrow">Notes / Deployments</span>
         <h1 className="pgrid__title" id="testimonials-title">
-          Your testimonials headline.
+          Project Notes & Engineering Insights
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one line that introduces the videos and the client list.
+          Detailed operational summaries, architecture decisions, and implementation records for production utilities and internal tools.
         </p>
       </header>
 
@@ -144,7 +144,7 @@ export default function TestimonialsGrid() {
                 controls
                 autoPlay
                 playsInline
-                aria-label={`Video testimonial ${clip.index} from a client`}
+                aria-label={`Video walkthrough ${clip.index}`}
               />
             ) : (
               <button
@@ -154,8 +154,8 @@ export default function TestimonialsGrid() {
                 disabled={!hasVideo}
                 aria-label={
                   hasVideo
-                    ? `Play client testimonial ${clip.index}, ${clip.duration}`
-                    : `Client testimonial ${clip.index}, no video added yet`
+                    ? `Play walkthrough ${clip.index}, ${clip.duration}`
+                    : `Walkthrough ${clip.index}, preview video in preparation`
                 }
               >
                 <img
@@ -178,7 +178,7 @@ export default function TestimonialsGrid() {
                   <span className="tgrid__cover-sub">
                     {hasVideo
                       ? `${clip.duration} · Tap to play`
-                      : 'PLACEHOLDER - add your video to public/testimonials/'}
+                      : 'Walkthrough recordings and screen overviews in preparation'}
                   </span>
                 </span>
               </button>
@@ -200,7 +200,7 @@ export default function TestimonialsGrid() {
                   <img src={c.poster} alt="" loading="lazy" decoding="async" />
                 </span>
                 <span className="tgrid__pick-copy">
-                  <span className="tgrid__pick-kicker">Testimonial {c.index}</span>
+                  <span className="tgrid__pick-kicker">Walkthrough {c.index}</span>
                   <span className="tgrid__pick-meta">{c.duration}</span>
                 </span>
               </button>
@@ -211,8 +211,8 @@ export default function TestimonialsGrid() {
         {/* Right: the client ledger, one row per client. */}
         <div className="tgrid__ledger">
           <div className="tgrid__ledger-head">
-            <h2 className="tgrid__ledger-title">Your client list headline here.</h2>
-            <p className="tgrid__ledger-sub">Short supporting line.</p>
+            <h2 className="tgrid__ledger-title">Operational Systems Ledger</h2>
+            <p className="tgrid__ledger-sub">Practical software built for daily operational workflows.</p>
           </div>
 
           {/* One plate, three rows split by hairlines. Three boxed cards each

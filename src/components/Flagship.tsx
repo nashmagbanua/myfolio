@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import {
   ArrowSquareOut,
   House,
@@ -93,7 +94,7 @@ const TABS: FlagshipTab[] = [
     pageTitle: 'Home',
     nav: 'announcement',
     caption:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on the first screen people land on in your product and what it tells them at a glance.',
+      'Overview dashboard showing active utility status, equipment health indicators, and shift handover announcements at a glance.',
     Icon: House,
   },
   {
@@ -103,7 +104,7 @@ const TABS: FlagshipTab[] = [
     pageTitle: 'Board',
     nav: 'desk',
     caption:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on your product\'s main workspace (a board, editor or dashboard) and what people do there every day.',
+      'Operational task and maintenance board organizing routine checks, calibration tickets, and shift assignments in real time.',
     Icon: Kanban,
   },
   {
@@ -113,7 +114,7 @@ const TABS: FlagshipTab[] = [
     pageTitle: 'Listings',
     nav: 'work',
     caption:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on a list or feed your product pulls together, where the data comes from and what it saves the user.',
+      'Structured logsheet activity feed pulling telemetry, reading timestamps, and operator actions into a single chronological stream.',
     Icon: Briefcase,
   },
   {
@@ -123,7 +124,7 @@ const TABS: FlagshipTab[] = [
     pageTitle: 'Features',
     nav: 'tools',
     caption:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on the set of features or tools inside your product, how many there are and which plan they are on.',
+      'Dedicated utility modules for formula-based flow estimates, power delta calculations, and unit conversions.',
     Icon: Toolbox,
   },
   {
@@ -133,7 +134,7 @@ const TABS: FlagshipTab[] = [
     pageTitle: 'Search',
     nav: 'desk',
     caption:
-      'PLACEHOLDER - tell me what to put here: one or two sentences on a search or finder feature, what goes in, what comes out and why the results are useful.',
+      'Equipment and sensor lookup tool for retrieving historical telemetry records, maintenance logs, and specifications.',
     Icon: MapPinLine,
   },
 ]
@@ -174,28 +175,28 @@ type Update = {
 
 const UPDATES: Update[] = [
   {
-    date: 'Jan 5',
+    date: 'Sep 24',
     year: '2026',
-    ago: '2 days ago',
+    ago: 'Active',
     kind: 'New',
-    title: 'PLACEHOLDER - newest update title',
-    text: 'PLACEHOLDER - tell me what to put here: a real changelog entry for your product, what shipped and why it matters to the people using it.',
+    title: 'Telemetry Synchronization',
+    text: 'Synchronized real-time reading updates across local operational cache and remote database storage.',
   },
   {
-    date: 'Jan 3',
+    date: 'Sep 18',
     year: '2026',
-    ago: '4 days ago',
+    ago: 'Recent',
     kind: 'Improved',
-    title: 'PLACEHOLDER - earlier update title',
-    text: 'PLACEHOLDER - tell me what to put here: an improvement you made to an existing feature and what changed for the user.',
+    title: 'Formula Verification Engine',
+    text: 'Refined duration-based calculation logic to prevent rounding variances during field measurement retakes.',
   },
   {
-    date: 'Jan 1',
+    date: 'Sep 10',
     year: '2026',
-    ago: '6 days ago',
+    ago: 'Stable',
     kind: 'New',
-    title: 'PLACEHOLDER - older update title',
-    text: 'PLACEHOLDER - tell me what to put here: another shipped feature, in one or two plain sentences.',
+    title: 'Offline Field Storage',
+    text: 'Added local storage queuing so operators can capture equipment readings even during network drops.',
   },
 ]
 
@@ -205,34 +206,34 @@ const BOARD: { name: string; tasks: Task[] }[] = [
   {
     name: 'To do',
     tasks: [
-      { title: 'PLACEHOLDER task one', tag: 'Tag', mine: true },
-      { title: 'PLACEHOLDER task two', tag: 'Tag' },
-      { title: 'PLACEHOLDER task three', tag: 'Tag', mine: true },
-      { title: 'PLACEHOLDER task four', tag: 'Tag' },
+      { title: 'Verify sensor baseline', tag: 'Telemetry', mine: true },
+      { title: 'Calibrate flow gauge', tag: 'Hardware' },
+      { title: 'Review shift handover', tag: 'Operations', mine: true },
+      { title: 'Export monthly power log', tag: 'Reporting' },
     ],
   },
   {
     name: 'In progress',
     tasks: [
-      { title: 'PLACEHOLDER task five', tag: 'Tag' },
-      { title: 'PLACEHOLDER task six', tag: 'Tag', mine: true },
-      { title: 'PLACEHOLDER task seven', tag: 'Tag' },
+      { title: 'Update deepwell flow record', tag: 'Flow' },
+      { title: 'Inspect boiler line delta', tag: 'Power', mine: true },
+      { title: 'Sync database schema', tag: 'Database' },
     ],
   },
   {
     name: 'Review',
     tasks: [
-      { title: 'PLACEHOLDER task eight', tag: 'Tag' },
-      { title: 'PLACEHOLDER task nine', tag: 'Tag' },
-      { title: 'PLACEHOLDER task ten', tag: 'Tag', mine: true },
+      { title: 'Validate duration formulas', tag: 'Logic' },
+      { title: 'Verify operator permissions', tag: 'Auth' },
+      { title: 'Check responsive breakpoints', tag: 'UI', mine: true },
     ],
   },
   {
     name: 'Done',
     tasks: [
-      { title: 'PLACEHOLDER task eleven', tag: 'Tag', mine: true },
-      { title: 'PLACEHOLDER task twelve', tag: 'Tag' },
-      { title: 'PLACEHOLDER task thirteen', tag: 'Tag' },
+      { title: 'Deploy telemetry logsheet', tag: 'Vercel', mine: true },
+      { title: 'Configure mobile packaging', tag: 'Mobile' },
+      { title: 'Optimize table rendering', tag: 'Perf' },
     ],
   },
 ]
@@ -240,16 +241,16 @@ const BOARD: { name: string; tasks: Task[] }[] = [
 type Tool = { name: string; note: string; Icon: Icon; pro?: boolean }
 
 const TOOLS: Tool[] = [
-  { name: 'Feature one', note: 'Short description', Icon: FileArrowUp },
-  { name: 'Feature two', note: 'Short description', Icon: ImageSquare },
-  { name: 'Feature three', note: 'Short description', Icon: FilePdf },
-  { name: 'Feature four', note: 'Short description', Icon: TextAa },
-  { name: 'Feature five', note: 'Short description', Icon: QrCode },
-  { name: 'Feature six', note: 'Short description', Icon: Scissors },
-  { name: 'Feature seven', note: 'Short description', Icon: ArrowsOutSimple },
-  { name: 'Feature eight', note: 'Short description', Icon: Microphone },
-  { name: 'Feature nine', note: 'Short description', Icon: ClosedCaptioning, pro: true },
-  { name: 'Feature ten', note: 'Short description', Icon: MagicWand },
+  { name: 'Flow Calculator', note: 'Duration-based flow rate', Icon: FileArrowUp },
+  { name: 'Power Logsheet', note: 'Equipment reading delta', Icon: ImageSquare },
+  { name: 'Workforce Portal', note: 'Attendance & access log', Icon: FilePdf },
+  { name: 'Shift Handover', note: 'Operator announcements', Icon: TextAa },
+  { name: 'Equipment Scanner', note: 'Hardware identification', Icon: QrCode },
+  { name: 'Logsheet Export', note: 'CSV & structured export', Icon: Scissors },
+  { name: 'Telemetry Sync', note: 'Database replication', Icon: ArrowsOutSimple },
+  { name: 'Warning Alerts', note: 'Threshold indicators', Icon: Microphone },
+  { name: 'Sensor Health', note: 'Telemetry status', Icon: ClosedCaptioning, pro: true },
+  { name: 'Formula Engine', note: 'Calculation precision', Icon: MagicWand },
 ]
 
 const TOOL_FILTERS = ['All 10', 'Group A', 'Group B', 'Group C', 'Group D', 'Group E']
@@ -265,11 +266,11 @@ type Job = {
 }
 
 const JOBS: Job[] = [
-  { source: 'Src A', tone: 'olj', title: 'PLACEHOLDER listing one', rate: 'Detail', posted: '2h ago', state: 'Applied' },
-  { source: 'Src B', tone: 'linkedin', title: 'PLACEHOLDER listing two', rate: 'Detail', posted: '5h ago', state: 'Saved' },
-  { source: 'Src C', tone: 'jobstreet', title: 'PLACEHOLDER listing three', rate: 'Detail', posted: '6h ago', state: 'New' },
-  { source: 'Src A', tone: 'olj', title: 'PLACEHOLDER listing four', rate: 'Detail', posted: '9h ago', state: 'Saved' },
-  { source: 'Src B', tone: 'linkedin', title: 'PLACEHOLDER listing five', rate: 'Detail', posted: '1d ago', state: 'New' },
+  { source: 'Flow Line', tone: 'olj', title: 'Deepwell production reading logged', rate: 'Normal', posted: '10m ago', state: 'New' },
+  { source: 'Power Grid', tone: 'linkedin', title: 'Boiler line power reading verified', rate: 'In Spec', posted: '45m ago', state: 'Saved' },
+  { source: 'Workforce', tone: 'jobstreet', title: 'Shift access timekeeping recorded', rate: 'Verified', posted: '2h ago', state: 'Applied' },
+  { source: 'Flow Line', tone: 'olj', title: 'GPM duration formula checked', rate: 'Normal', posted: '4h ago', state: 'Saved' },
+  { source: 'Telemetry', tone: 'linkedin', title: 'Automated database backup sync completed', rate: 'Success', posted: '1d ago', state: 'New' },
 ]
 
 type Lead = {
@@ -282,11 +283,11 @@ type Lead = {
 }
 
 const LEADS: Lead[] = [
-  { name: 'PLACEHOLDER result one', place: 'Location', rating: '4.8', reviews: '212', score: 91, angle: 'Tag' },
-  { name: 'PLACEHOLDER result two', place: 'Location', rating: '4.6', reviews: '148', score: 84, angle: 'Tag' },
-  { name: 'PLACEHOLDER result three', place: 'Location', rating: '4.4', reviews: '96', score: 72, angle: 'Tag' },
-  { name: 'PLACEHOLDER result four', place: 'Location', rating: '4.9', reviews: '61', score: 65, angle: 'Tag' },
-  { name: 'PLACEHOLDER result five', place: 'Location', rating: '4.2', reviews: '44', score: 58, angle: 'Tag' },
+  { name: 'Deepwell Flow Sensor 01', place: 'Substation A', rating: '4.8', reviews: '18.4s', score: 95, angle: 'Flow' },
+  { name: 'Main Boiler Power Monitor', place: 'Utility Room 2', rating: '4.9', reviews: '1,248k', score: 92, angle: 'Power' },
+  { name: 'Cooling Water Loop Sensor', place: 'Pump Station B', rating: '4.7', reviews: '9.4', score: 88, angle: 'Telemetry' },
+  { name: 'Production Line Meter 03', place: 'Sector 4', rating: '4.6', reviews: '14.2s', score: 81, angle: 'Flow' },
+  { name: 'Auxiliary Generator Meter', place: 'Substation B', rating: '4.9', reviews: '620k', score: 78, angle: 'Power' },
 ]
 
 /* ---- The app shell. Every slide renders inside this, so switching tabs
@@ -303,7 +304,7 @@ function Shell({ tab, children }: { tab: FlagshipTab; children: React.ReactNode 
             <Sparkle weight="fill" size="1.05em" />
           </span>
           <span className="flagship__wordmark">
-            Product<span className="flagship__wordmark-accent">Name</span>
+            Ops<span className="flagship__wordmark-accent">Desk</span>
           </span>
           <span className="flagship__collapse">
             <CaretLeft weight="bold" size="0.8em" />
@@ -410,9 +411,9 @@ function AnnouncementMock() {
   return (
     <>
       <PageHead
-        kicker="Monday, January 5"
-        title="Good morning, User."
-        sub="PLACEHOLDER status line."
+        kicker="Operational Status"
+        title="Good morning, Operator."
+        sub="All telemetry feeds and logging routines are operating normally."
       />
 
       <div className="flagship__card" style={{ ['--i' as string]: 3 }}>
@@ -423,7 +424,7 @@ function AnnouncementMock() {
         <div className="flagship__card-body">
           <CheckCircle weight="fill" size="1.15em" className="flagship__ok" />
           <span>
-            PLACEHOLDER - the main status message your dashboard shows.
+            All 3 production lines active. No outstanding calibration tickets.
           </span>
         </div>
         <div className="flagship__card-foot">
@@ -474,9 +475,9 @@ function DeskMock() {
   return (
     <>
       <PageHead
-        kicker="Monday, January 5"
-        title="PLACEHOLDER board heading."
-        sub="PLACEHOLDER - one line on what this board holds."
+        kicker="Task Management"
+        title="Operational Task Board"
+        sub="Routine checks, telemetry calibrations, and shift assignments."
       />
       <div className="flagship__board">
         {BOARD.map((col, i) => (
@@ -517,9 +518,9 @@ function ToolsMock() {
   return (
     <>
       <PageHead
-        kicker="Features"
-        title="PLACEHOLDER features heading."
-        sub="PLACEHOLDER - one line on what the features have in common."
+        kicker="Calculator Modules"
+        title="Operational Calculator Modules"
+        sub="Specialized tools for flow rates, power telemetry, and logsheet exports."
       />
       <div className="flagship__filters" style={{ ['--i' as string]: 3 }}>
         {TOOL_FILTERS.map((f, i) => (
@@ -555,9 +556,9 @@ function JobsMock() {
   return (
     <>
       <PageHead
-        kicker="Listings"
-        title="PLACEHOLDER listings heading."
-        sub="PLACEHOLDER - one line on where these listings come from."
+        kicker="Activity Stream"
+        title="Operational Activity Stream"
+        sub="Real-time log of operator actions, sensor checks, and system records."
       />
       <div className="flagship__filters" style={{ ['--i' as string]: 3 }}>
         {['All sources', 'Source A', 'Source B', 'Source C'].map((f, i) => (
@@ -604,11 +605,11 @@ function LeadsMock() {
       <div className="flagship__leadbar" style={{ ['--i' as string]: 2 }}>
         <span className="flagship__field">
           <span className="flagship__field-label">Category</span>
-          <span className="flagship__field-value">PLACEHOLDER</span>
+          <span className="flagship__field-value">Flow & Power</span>
         </span>
         <span className="flagship__field">
           <span className="flagship__field-label">Location</span>
-          <span className="flagship__field-value">PLACEHOLDER</span>
+          <span className="flagship__field-value">Substations</span>
         </span>
         <span className="flagship__leadgo">
           <MapPinLine weight="fill" size="0.95em" />
@@ -617,7 +618,7 @@ function LeadsMock() {
       </div>
 
       <span className="flagship__leadmeta" style={{ ['--i' as string]: 3 }}>
-        30 results found · 19 with a detail · 7 with another detail
+        5 telemetry devices registered · 3 active online · 2 stand-by
       </span>
 
       <div className="flagship__list">
@@ -651,7 +652,7 @@ function LeadsMock() {
       </div>
 
       <span className="flagship__foot" style={{ ['--i' as string]: 9 }}>
-        PLACEHOLDER - one line explaining how the score is worked out.
+        Telemetry health score calculated from response latency and measurement stability.
       </span>
     </>
   )
@@ -673,54 +674,39 @@ type Feedback = {
   quote: string
 }
 
-/* Use real quotes only, kept verbatim, with the person's permission. */
+/* Operational design principles highlighting interface usability standards. */
 const FEEDBACKS: Feedback[] = [
   {
-    name: 'Client Name',
-    date: 'Jan 5, 2026',
+    name: 'Clarity First',
+    date: 'UX Standard',
     rating: 5,
-    context: 'PLACEHOLDER',
+    context: 'Operator Interface',
     quote:
-      'PLACEHOLDER - tell me what to put here: a real quote from someone who used your product, word for word, two to four sentences on what it did for them.',
+      'Software built for operational workflows must be clear and intuitive on busy shop floors — zero guesswork and immediate feedback.',
   },
   {
-    name: 'Client Name',
-    date: 'Jan 4, 2026',
+    name: 'Reliable Persistence',
+    date: 'Data Integrity',
     rating: 5,
-    context: 'PLACEHOLDER',
+    context: 'Database Storage',
     quote:
-      'PLACEHOLDER - tell me what to put here: a real quote about a specific feature or result, with a number if they gave one.',
+      'Structured database rules and state handling designed to prevent lost readings, duplicate entries, or corrupted logsheets.',
   },
   {
-    name: 'Client Name',
-    date: 'Jan 3, 2026',
+    name: 'Lean Architecture',
+    date: 'Performance',
     rating: 5,
-    context: 'PLACEHOLDER',
+    context: 'Frontend & Logic',
     quote:
-      'PLACEHOLDER - tell me what to put here: a short real quote, one sentence is fine.',
+      'Clean components and focused state management that load quickly and respond smoothly without unnecessary dependencies.',
   },
   {
-    name: 'Client Name',
-    date: 'Jan 2, 2026',
+    name: 'Cross-Device Utility',
+    date: 'Mobility',
     rating: 5,
-    context: 'PLACEHOLDER',
+    context: 'Responsive & PWA',
     quote:
-      'PLACEHOLDER - tell me what to put here: a real quote about working with you or the support you gave, not just the product.',
-  },
-  {
-    name: 'Client Name',
-    date: 'Jan 1, 2026',
-    rating: 4,
-    context: 'PLACEHOLDER',
-    quote: 'PLACEHOLDER - tell me what to put here: a one-line quote.',
-  },
-  {
-    name: 'Client Name',
-    date: 'Dec 31, 2025',
-    rating: 5,
-    context: 'PLACEHOLDER',
-    quote:
-      'PLACEHOLDER - tell me what to put here: a real quote from a community member or early user, two sentences.',
+      'Interfaces engineered to adapt cleanly across handheld phones, tablets, and desktop workstations alike.',
   },
 ]
 
@@ -732,7 +718,7 @@ type FlagshipProps = {
   eyebrow?: string
 }
 
-export default function Flagship({ eyebrow = '12 / Flagship build' }: FlagshipProps = {}) {
+export default function Flagship({ eyebrow = 'Operations Prototype' }: FlagshipProps = {}) {
   const [active, setActive] = useState(0)
   const [paused, setPaused] = useState(false)
   const [inView, setInView] = useState(true)
@@ -787,17 +773,15 @@ export default function Flagship({ eyebrow = '12 / Flagship build' }: FlagshipPr
       <header className="flagship__header">
         <span className="flagship__eyebrow">{eyebrow}</span>
         <h3 className="flagship__title" id="flagship-heading">
-          Product Name
+          Operations Workspace Prototype
         </h3>
         <p className="flagship__desc">
-          PLACEHOLDER - tell me what to put here: two to four sentences on your flagship
-          product - who it is for, the main things it does, and one detail on how you
-          built or run it (stack, hosting, how many people use it).
+          An interactive prototype demonstrating multi-view workspace navigation, task boards, telemetry activity streams, and structured search in a single responsive web interface.
         </p>
-        <a className="flagship__cta" href="#">
-          Open product
+        <Link to="/projects" className="flagship__cta">
+          View projects
           <ArrowSquareOut weight="bold" size={16} aria-hidden="true" />
-        </a>
+        </Link>
       </header>
 
       <div
@@ -813,7 +797,7 @@ export default function Flagship({ eyebrow = '12 / Flagship build' }: FlagshipPr
             <span className="flagship__dot flagship__dot--amber" />
             <span className="flagship__dot flagship__dot--green" />
             <span className="flagship__device-url">
-              <span className="flagship__device-url-host">example.com</span>
+              <span className="flagship__device-url-host">opsdesk.local</span>
               <span className="flagship__device-url-path">{current.path}</span>
             </span>
           </div>
@@ -868,9 +852,9 @@ export default function Flagship({ eyebrow = '12 / Flagship build' }: FlagshipPr
 
       <div className="flagship__feedback" aria-labelledby="flagship-feedback-heading">
         <header className="flagship__feedback-header">
-          <span className="flagship__feedback-eyebrow">What people say about it</span>
+          <span className="flagship__feedback-eyebrow">Design Philosophy</span>
           <h4 className="flagship__feedback-title" id="flagship-feedback-heading">
-            Your testimonials heading.
+            Operational Usability Standards
           </h4>
           <button
             type="button"

@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>MyFolio - Interactive Portfolio</title>
-    <meta name="description" content="Interactive developer portfolio featuring 3D contour visuals, bento layout, 3D carousel showcase, and responsive mobile design." />
-    <meta name="author" content="Your Name" />
+    <title>Nash Magbanua - Developer & Automation Builder</title>
+    <meta name="description" content="I design and build web apps, internal tools, and automation systems that solve real-world operational bottlenecks." />
+    <meta name="author" content="Nash Magbanua" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0B1E3F" />
-    <!-- <link rel="canonical" href="https://yoursite.com/" /> -->
+    <link rel="canonical" href="https://myfolio-magbanua.vercel.app/" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -18,16 +18,58 @@
 
     <!-- The rail avatar is above the fold on every desktop route. Keep this in
          sync with profile.avatarSrc in src/data/profile.ts. -->
-    <link rel="preload" as="image" href="/avatar.svg" fetchpriority="high" media="(min-width: 1100px)" />
+    <link rel="preload" as="image" href="/profile.jpg" fetchpriority="high" media="(min-width: 1100px)" />
 
-    <!-- Open Graph / social share. og:image must be an absolute URL once you deploy. -->
+    <!-- Open Graph / social share -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="MyFolio" />
-    <meta property="og:title" content="MyFolio - Interactive Portfolio" />
-    <meta property="og:description" content="Interactive developer portfolio featuring 3D contour visuals, bento layout, 3D carousel showcase, and responsive mobile design." />
-    <!-- <meta property="og:url" content="https://yoursite.com/" /> -->
-    <!-- <meta property="og:image" content="https://yoursite.com/share.png" /> -->
+    <meta property="og:site_name" content="Nash Magbanua" />
+    <meta property="og:title" content="Nash Magbanua - Developer & Automation Builder" />
+    <meta property="og:description" content="I design and build web apps, internal tools, and automation systems that solve real-world operational bottlenecks." />
+    <meta property="og:url" content="https://myfolio-magbanua.vercel.app/" />
+    <meta property="og:image" content="https://myfolio-magbanua.vercel.app/profile.jpg" />
+
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nash Magbanua - Developer & Automation Builder" />
+    <meta name="twitter:description" content="I design and build web apps, internal tools, and automation systems that solve real-world operational bottlenecks." />
+    <meta name="twitter:image" content="https://myfolio-magbanua.vercel.app/profile.jpg" />
+
+    <!-- Schema.org JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://myfolio-magbanua.vercel.app/#person",
+            "name": "Nash Magbanua",
+            "jobTitle": "Developer / Automation Builder",
+            "description": "I design and build web apps, internal tools, and automation systems that solve real-world operational bottlenecks.",
+            "url": "https://myfolio-magbanua.vercel.app/",
+            "image": "https://myfolio-magbanua.vercel.app/profile.jpg",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Batangas",
+              "addressCountry": "PH"
+            },
+            "sameAs": [
+              "https://github.com/nashmagbanua",
+              "https://www.linkedin.com/in/nash-magbanua-560077437/",
+              "https://www.facebook.com/profile.php?id=61585308898126"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://myfolio-magbanua.vercel.app/#website",
+            "url": "https://myfolio-magbanua.vercel.app/",
+            "name": "Nash Magbanua Portfolio",
+            "publisher": {
+              "@id": "https://myfolio-magbanua.vercel.app/#person"
+            }
+          }
+        ]
+      }
+    </script>
 
     <!-- Theme before first paint: no flash of the wrong palette. Default is
          light; dark is the visitor's opt-in, persisted in localStorage. -->

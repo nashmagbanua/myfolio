@@ -47,7 +47,7 @@ export const profile: Profile = {
   firstName: 'Nash',
   handle: '@nashmagbanua',
   role: 'Developer / Automation Builder',
-  avatarSrc: '/avatar.svg',
+  avatarSrc: '/profile.jpg',
   verifiedLabel: 'Independent Developer',
   email: 'nashmagbanua@gmail.com',
   location: 'Batangas, Philippines',
@@ -58,10 +58,10 @@ export const profile: Profile = {
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Nash', line2: 'Magbanua' },
+  displayName: { line1: 'Built for Reliability.', line2: 'Scaled for Impact.' },
   hero: {
-    body: 'I build web apps, internal tools, and automation workflows to solve practical problems. Most of my projects start with a real-world friction point and turn into clean, dependable software.',
-    portraitSrc: '/avatar.svg',
+    body: 'I design and build web apps, internal tools, and automation systems that solve real-world operational bottlenecks.',
+    portraitSrc: '/profile.jpg',
     portraitAlt: 'Portrait of Nash Magbanua',
   },
   socials: [

@@ -60,10 +60,10 @@ export default function ContactGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">FAQs / Contact</span>
         <h1 className="pgrid__title" id="contact-title">
-          Your contact headline goes here.
+          Have a project in mind?
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one or two lines inviting people to write and saying what they get back.
+          If you have a workflow that could be simpler, a tool you want to build, or an existing application that needs improvement, send me a message and tell me what you're working on.
         </p>
       </header>
 
@@ -165,16 +165,16 @@ export default function ContactGrid() {
 
               <label className="cgrid__field">
                 <span className="cgrid__label">Email</span>
-                <input type="email" name="email" autoComplete="email" required maxLength={MAX_EMAIL} placeholder="you@yourbusiness.com" />
+                <input type="email" name="email" autoComplete="email" required maxLength={MAX_EMAIL} placeholder="you@example.com" />
               </label>
 
               <label className="cgrid__field cgrid__field--grow">
-                <span className="cgrid__label">Tell me more about your business</span>
+                <span className="cgrid__label">Tell me about your project or workflow</span>
                 <textarea
                   name="message"
                   required
                   maxLength={MAX_MESSAGE}
-                  placeholder="What do you need help with? What are you working with today?"
+                  placeholder="What are you looking to build or simplify? Describe the workflow or requirements."
                 />
               </label>
 
@@ -197,7 +197,7 @@ export default function ContactGrid() {
                     {status.note}
                   </span>
                 ) : (
-                  <span className="cgrid__hint">Short reassurance line, e.g. your reply time.</span>
+                  <span className="cgrid__hint">Direct response · Typically within 24 hours.</span>
                 )}
               </div>
             </form>
