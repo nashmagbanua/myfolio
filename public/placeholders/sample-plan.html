@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sample Document - Placeholder</title>
+<title>Project Implementation Architecture - MYFOLIO</title>
 <meta name="robots" content="noindex">
 <style>
   :root {
@@ -74,53 +74,41 @@
   <main class="doc">
     <span class="tag">
       <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 1.5h5.5L13 5v9.5H4z"/><path d="M9 1.5V5h4"/></svg>
-      <span id="doc-kind">Placeholder sample document</span>
+      <span id="doc-kind">Project Architecture</span>
     </span>
-    <h1 id="doc-title">Your document title goes here.</h1>
-    <p class="lede">PLACEHOLDER - tell me what to put here: a one-line summary of this plan or case study, who it was for, and the result.</p>
+    <h1 id="doc-title">Workflow Implementation Plan</h1>
+    <p class="lede">A practical engineering structure for turning an operational workflow into a dependable, usable application.</p>
 
     <div class="meta">
-      <div><span>Client</span><b>Client Name</b></div>
-      <div><span>Timeline</span><b>0 weeks</b></div>
-      <div><span>Outcome</span><b>Result metric</b></div>
+      <div><span>Domain</span><b>Operational Software</b></div>
+      <div><span>Core Stack</span><b>React · TypeScript · Vite</b></div>
+      <div><span>Persistence</span><b>Supabase · PostgreSQL</b></div>
     </div>
 
-    <h2><i>01</i>The problem</h2>
-    <div class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> what was broken or missing before you started, in two or three sentences.</div>
+    <h2><i>01</i>Understand</h2>
+    <div class="hint"><strong>Workflow Discovery:</strong> Map out the operational process, operator handoffs, and required data entry points to establish clean validation rules.</div>
 
-    <h2><i>02</i>The plan</h2>
-    <p class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> the steps you mapped out before building anything.</p>
-    <div class="flow" aria-label="Example flow">
-      <span>Step one</span><em>&rarr;</em>
-      <span>Step two</span><em>&rarr;</em>
-      <span>Decision?</span><em>&rarr;</em>
-      <span class="on">Result</span>
+    <h2><i>02</i>Build</h2>
+    <p class="hint"><strong>Interface & Logic:</strong> Develop responsive interfaces for desktop and mobile devices with strict state validation and real-time computation.</p>
+    <div class="flow" aria-label="Workflow implementation stages">
+      <span>Discovery</span><em>&rarr;</em>
+      <span>Interface</span><em>&rarr;</em>
+      <span>Validation</span><em>&rarr;</em>
+      <span class="on">Deployment</span>
     </div>
 
-    <h2><i>03</i>What was built</h2>
-    <div class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> the pieces you delivered.</div>
+    <h2><i>03</i>Connect</h2>
+    <div class="hint"><strong>Data Persistence:</strong> Integrate Supabase or Firebase for reliable row storage, realtime synchronization, and secure operator sessions.</div>
     <ul class="list">
-      <li>Deliverable one</li>
-      <li>Deliverable two</li>
-      <li>Deliverable three</li>
+      <li>Relational database tables with typed schema definitions</li>
+      <li>Deterministic state handling and telemetry ingestion</li>
+      <li>Clean API boundaries and edge-deployed hosting</li>
     </ul>
 
-    <h2><i>04</i>Results</h2>
-    <div class="hint"><strong>PLACEHOLDER - tell me what to put here:</strong> the numbers or the change the client saw afterwards.</div>
+    <h2><i>04</i>Verify</h2>
+    <div class="hint"><strong>Quality Assurance:</strong> Verify mathematical calculations against historical operational logs and test responsive layouts on mobile field equipment.</div>
 
-    <footer>This is a placeholder page shipped with the template. Replace public/placeholders/sample-plan.html with your own document.</footer>
+    <footer>Operational Engineering Methodology &middot; Nash Magbanua &middot; MYFOLIO</footer>
   </main>
-  <script>
-    // ?doc=N labels the page for the featured-project panels that reuse it.
-    (function () {
-      var n = new URLSearchParams(location.search).get('doc');
-      var names = { '1': 'Featured Project One', '2': 'Featured Project Two', '3': 'Featured Project Three' };
-      if (!n || !names[n]) return;
-      var kind = document.getElementById('doc-kind');
-      var title = document.getElementById('doc-title');
-      if (kind) kind.textContent = 'Placeholder - ' + names[n];
-      if (title) title.textContent = names[n] + ': your page goes here.';
-    })();
-  </script>
 </body>
 </html>

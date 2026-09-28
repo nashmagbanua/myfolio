@@ -20,17 +20,9 @@ export type Funnel = {
 
 const funnel = (n: string, tag: FunnelTag): Funnel => ({
   file: `placeholder-funnel-${n}.html`,
-  label: `Placeholder Funnel ${n}`,
+  label: `Workflow Interface Sample ${n}`,
   tag,
-  desc: 'PLACEHOLDER - tell me what to put here: who this page was for and what it does.',
-})
-
-const site = (n: string): Funnel => ({
-  file: `placeholder-site-${n}.html`,
-  label: `Placeholder Website ${n}`,
-  tag: 'Website',
-  desc: 'PLACEHOLDER - tell me what to put here: the client, the industry, and what the site had to do.',
-  dir: 'samples',
+  desc: 'Illustrative operational web application interface designed for responsive desktop and mobile workflows.',
 })
 
 export const gymFunnel: Funnel[] = [
@@ -45,7 +37,50 @@ export const bookingFunnel: Funnel[] = [
   funnel('06', 'Booking'),
 ]
 
-export const websiteFunnel: Funnel[] = ['01', '02', '03', '04', '05', '06'].map(site)
+export const websiteFunnel: Funnel[] = [
+  {
+    file: 'placeholder-site-01.html',
+    label: 'Dashboard Interface',
+    tag: 'Website',
+    desc: 'Illustrative interface pattern for desktop operational dashboards, key indicators, and activity logs.',
+    dir: 'samples',
+  },
+  {
+    file: 'placeholder-site-02.html',
+    label: 'Responsive Application',
+    tag: 'Website',
+    desc: 'Illustrative interface pattern designed for desktop and mobile application workflows.',
+    dir: 'samples',
+  },
+  {
+    file: 'placeholder-site-03.html',
+    label: 'Workflow Screen',
+    tag: 'Website',
+    desc: 'Illustrative step-by-step process interface for structured data capture and form validation.',
+    dir: 'samples',
+  },
+  {
+    file: 'placeholder-site-04.html',
+    label: 'Data Entry Interface',
+    tag: 'Website',
+    desc: 'Illustrative high-density tabular and entry view for efficient field operator recording.',
+    dir: 'samples',
+  },
+  {
+    file: 'placeholder-site-05.html',
+    label: 'Monitoring View',
+    tag: 'Website',
+    desc: 'Illustrative telemetry and equipment state visualization interface.',
+    dir: 'samples',
+  },
+  {
+    file: 'placeholder-site-06.html',
+    label: 'Mobile Utility',
+    tag: 'Website',
+    desc: 'Illustrative compact, touch-optimized operational tool layout for handheld field devices.',
+    dir: 'samples',
+  },
+]
 
 /**
  * Tag -> color map. Brand-external colors that identify the page type, passed

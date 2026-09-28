@@ -1,0 +1,123 @@
+/* ============================================
+   FLOATING GET IN TOUCH - fixed bottom-right
+   Matches Accessibility button on bottom-left:
+   navy container, cream text, orange accent.
+   ============================================ */
+.floating-contact-wrap {
+  position: fixed;
+  right: clamp(16px, 3vw, 28px);
+  bottom: clamp(16px, 3vw, 28px);
+  z-index: 710;
+  font-family: var(--font-display);
+  pointer-events: none;
+  transition:
+    opacity 620ms var(--ease-out),
+    transform 760ms var(--ease-out);
+  transition-delay: 240ms;
+}
+
+html.is-intro .floating-contact-wrap {
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+}
+
+.floating-contact {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 20px 0 16px;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  border: 1px solid color-mix(in srgb, var(--cream) 14%, transparent);
+  box-shadow: 0 16px 38px -16px rgba(6, 12, 26, 0.6), 0 4px 12px -2px rgba(6, 12, 26, 0.3);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform var(--dur-med) var(--ease-spring),
+    box-shadow var(--dur-med) var(--ease-out),
+    background var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.floating-contact__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.floating-contact__label {
+  white-space: nowrap;
+}
+
+.floating-contact__arrow {
+  color: var(--orange);
+  flex-shrink: 0;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .floating-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 48px -16px rgba(6, 12, 26, 0.75), 0 6px 16px -2px rgba(6, 12, 26, 0.4);
+    border-color: color-mix(in srgb, var(--orange) 45%, transparent);
+    color: var(--cream);
+  }
+  .floating-contact:hover .floating-contact__arrow {
+    transform: translate(2px, -2px);
+  }
+}
+
+.floating-contact:active {
+  transform: scale(0.96);
+  transition-duration: 80ms;
+}
+
+.floating-contact:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* Dark mode theme support */
+[data-theme='dark'] .floating-contact {
+  background: var(--navy);
+  color: var(--navy-ink);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8);
+}
+[data-theme='dark'] .floating-contact__icon,
+[data-theme='dark'] .floating-contact__arrow {
+  color: #ea580c;
+}
+
+/* Clear bottom tab bar on mobile / tablet, matching a11y */
+@media (max-width: 1099px) {
+  .floating-contact-wrap {
+    right: 14px;
+    bottom: calc(94px + env(safe-area-inset-bottom, 0px));
+  }
+  .floating-contact {
+    height: 48px;
+    padding: 0 16px 0 13px;
+    font-size: 13.5px;
+    gap: 7px;
+  }
+}
+
+@media (max-width: 380px) {
+  .floating-contact {
+    padding: 0 13px 0 11px;
+    font-size: 13px;
+    gap: 6px;
+  }
+}

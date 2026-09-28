@@ -14,42 +14,36 @@ import { aiStack, type StackNode } from '@/data/ai-stack'
 type Tool = { name: string; src: string }
 
 const T = {
-  claude: { name: 'Claude', src: '/icons/ai/claude-color.svg' },
-  claudeCode: { name: 'Claude Code', src: '/icons/claude-code-logo.png' },
-  openai: { name: 'OpenAI Whisper', src: '/icons/openai.svg' },
-  elevenlabs: { name: 'ElevenLabs', src: '/icons/ai/elevenlabs.svg' },
+  react: { name: 'React', src: '/icons/ai/react.svg' },
+  vite: { name: 'Vite', src: '/icons/ai/vite.svg' },
+  tailwind: { name: 'Tailwind CSS', src: '/icons/ai/tailwindcss.svg' },
+  postgres: { name: 'PostgreSQL', src: '/icons/ai/postgresql.svg' },
   node: { name: 'Node.js', src: '/icons/ai/nodedotjs.svg' },
-  telegram: { name: 'Telegram', src: '/icons/ai/telegram.svg' },
-  slack: { name: 'Slack', src: '/icons/slack.svg' },
-  postgres: { name: 'Postgres + pgvector', src: '/icons/ai/postgresql.svg' },
-  sqlite: { name: 'SQLite FTS5', src: '/icons/ai/sqlite.svg' },
-  nous: { name: 'Nous Hermes', src: '/icons/ai/hermes.svg' },
-  docker: { name: 'Docker', src: '/icons/ai/docker.svg' },
-  ghl: { name: 'GoHighLevel', src: '/icons/gohighlevel.png' },
+  github: { name: 'GitHub', src: '/icons/ai/github.svg' },
+  chrome: { name: 'Chrome PWA', src: '/icons/ai/googlechrome.svg' },
+  play: { name: 'Mobile App', src: '/icons/ai/googleplay.svg' },
+  expo: { name: 'Capacitor', src: '/icons/ai/expo.svg' },
 } satisfies Record<string, Tool>
 
-/** What each system runs on. Keyed by the node id in ai-stack.ts. These are
- *  example marks - swap them for what each of your systems is built on. */
+/** What each system runs on. Keyed by the node id in ai-stack.ts. */
 const TOOLS: Record<string, Tool[]> = {
-  'project-a': [T.claude],
-  'project-b': [T.claude, T.claudeCode],
-  'project-c': [T.node, T.elevenlabs, T.openai, T.telegram],
-  'project-d': [T.claude, T.claudeCode],
-  'project-e': [T.claude, T.postgres, T.slack],
-  'project-f': [T.claude, T.sqlite],
-  'project-g': [T.claude, T.ghl],
-  'project-h': [T.claude, T.elevenlabs],
-  'project-i': [T.claude],
-  'project-j': [T.nous, T.telegram, T.docker],
-  'project-k': [T.nous, T.telegram],
+  'stack-react': [T.react],
+  'stack-vite': [T.vite],
+  'stack-tailwind': [T.tailwind],
+  'stack-supabase': [T.postgres],
+  'stack-firebase': [T.react],
+  'stack-capacitor': [T.expo, T.chrome],
+  'stack-vercel': [T.vite],
+  'stack-github': [T.github],
+  'stack-node': [T.node],
 }
 
-/** The harnesses everything above is built with. */
+/** The foundational tools and harnesses across the stack. */
 const HARNESS: Tool[] = [
-  { name: 'Claude Code', src: '/icons/claude-code-logo.png' },
-  { name: 'Codex', src: '/icons/ai/codex.svg' },
-  { name: 'Cursor', src: '/icons/ai/cursor.svg' },
-  { name: 'Hermes', src: '/icons/ai/hermes.svg' },
+  { name: 'React', src: '/icons/ai/react.svg' },
+  { name: 'TypeScript', src: '/icons/ai/vite.svg' },
+  { name: 'Tailwind CSS', src: '/icons/ai/tailwindcss.svg' },
+  { name: 'GitHub', src: '/icons/ai/github.svg' },
 ]
 
 type Group = { title: string; what: string; systems: StackNode[] }
@@ -102,7 +96,7 @@ export default function AIStackGrid() {
     <div className="aig">
       <header className="aig__head">
         <div className="aig__head-text">
-          <span className="aig__eyebrow">Placeholder category</span>
+          <span className="aig__eyebrow">Technology Architecture</span>
           <h3 className="aig__title">{aiStack.what}</h3>
         </div>
         <div className="aig__harness" aria-label="Built with">

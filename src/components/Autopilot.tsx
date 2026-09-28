@@ -354,11 +354,10 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
       <header className="autopilot__head">
         <span className="autopilot__eyebrow">Live automation</span>
         <h2 id="autopilot-heading" className="autopilot__headline">
-          Your workflow, end to end.
+          Operational workflow, end to end.
         </h2>
         <p className="autopilot__intro">
-          PLACEHOLDER - tell me what to put here: two or three sentences walking
-          through this example automation, from the trigger to each outcome.
+          Structured logic linking triggers, input validation, and real-time status dispatch to streamline routine tasks.
         </p>
       </header>
       )}
@@ -375,7 +374,7 @@ export default function Autopilot({ compact = false, maxScale = 1 }: AutopilotPr
 
         <div className="autopilot__canvas">
           <p className="autopilot__caption">
-            Your flow caption, in one short line.
+            Automated workflow logic with validation, status handling, and clear operational feedback.
           </p>
 
           <div className="autopilot__board" aria-hidden="true">

@@ -29,9 +29,9 @@
 /* ---------- Head ---------- */
 .home__headline {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: clamp(20px, 4vw, 56px);
+  gap: clamp(16px, 3.5vw, 48px);
 }
 
 /* One line, never two. The size is bounded by what fits beside the CTA in the
@@ -56,21 +56,92 @@
 .home__cta {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   flex-shrink: 0;
   height: 46px;
-  padding: 0 22px;
+  padding: 0 24px;
   border-radius: var(--radius-pill);
   background: var(--navy);
   color: var(--cream);
   font-size: 14px;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
   box-shadow: var(--shadow-btn);
+  border: 1px solid transparent;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
   transition: transform var(--dur-med) var(--ease-spring),
-              background var(--dur-fast) var(--ease-out);
+              box-shadow var(--dur-med) var(--ease-out),
+              background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
 }
-.home__cta svg { color: var(--orange); }
-.home__cta:hover { transform: translateY(-2px); }
+.home__cta svg {
+  color: var(--orange);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.home__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -8px rgba(11, 30, 63, 0.4);
+}
+.home__cta:hover svg {
+  transform: translate(2px, -2px);
+}
+.home__cta:active {
+  transform: scale(0.97);
+}
+.home__cta:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .home__cta {
+  background: var(--navy);
+  color: var(--navy-ink);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.7);
+}
+[data-theme='dark'] .home__cta svg {
+  color: #ea580c;
+}
+[data-theme='dark'] .home__cta:hover {
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.85);
+}
+
+.home__cta--desktop {
+  display: inline-flex;
+}
+.home__cta-mobile-box {
+  display: none;
+}
+
+@media (max-width: 1099px) {
+  .home__cta--desktop {
+    display: none !important;
+  }
+  .home__cta-mobile-box {
+    display: flex;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+  .home__cta--mobile {
+    display: inline-flex;
+    width: 100%;
+    max-width: 320px;
+    height: 48px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home__cta--mobile {
+    max-width: 100%;
+  }
+}
 
 /* One line, from 1400px up.
    The sentence is 130 characters. Measured against the panel it needs roughly

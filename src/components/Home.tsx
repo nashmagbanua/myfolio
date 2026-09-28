@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-import { ArrowUpRight } from '@/components/slab'
 import { profile } from '@/data/profile'
 import ToolsMarquee from './ToolsMarquee'
 import HomeBento from './HomeBento'
@@ -20,8 +18,8 @@ import { useIsPhone } from '@/hooks/useMediaQuery'
  *
  * On a phone the page becomes an app screen: a profile header where the rail
  * used to be, the proof stats under the lede, and the bento replaced by a
- * snap row of tiles (HomeMobile). The CTA leaves the head - the tab bar's
- * Contact action carries it on every screen.
+ * snap row of tiles (HomeMobile). The dedicated floating contact button at the
+ * bottom-right carries the contact action across every screen.
  *
  * `.home__title` is also the intro's landing target: IntroOverlay measures it
  * and flies its copy into this exact rect, so the line the visitor watched
@@ -43,16 +41,10 @@ export default function Home() {
               {displayName.line1} {displayName.line2}
             </span>
           </h1>
-
-          {!phone && (
-            <Link className="home__cta" to="/contact">
-              Get in touch
-              <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
-            </Link>
-          )}
         </div>
 
         <p className="home__lede">{hero.body}</p>
+
         {phone && <HomeStats />}
       </div>
 

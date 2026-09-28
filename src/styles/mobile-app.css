@@ -269,6 +269,38 @@
   .hproof__title { font-size: 14px; font-weight: 700; line-height: 1.3; }
   .hproof__meta { font-size: 12px; color: var(--muted); }
 
+  /* ---------- Home: mobile contact callout ---------- */
+  .hcontact-card {
+    margin: 24px 0 28px;
+    padding: 20px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 4px 20px -8px rgba(11, 30, 63, 0.15);
+  }
+  .hcontact-card__eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--orange-ink);
+  }
+  .hcontact-card__title {
+    margin: 4px 0 0;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--navy);
+  }
+  .home__cta--mobile-card {
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+  }
+
   /* ---------- Projects: filter + two-column grid ---------- */
   .pfilter {
     display: flex;

@@ -41,39 +41,36 @@ const FILTERS: { key: Cat | 'all'; label: string }[] = [
   { key: 'work', label: 'Work' },
   { key: 'sites', label: 'Sites' },
   { key: 'apps', label: 'Apps' },
-  { key: 'ai', label: 'AI' },
+  { key: 'ai', label: 'Stack' },
 ]
 
-/** Example tool marks, from public/icons. Swap for what you build with. */
-const GHL = '/icons/gohighlevel.png'
-const CLAUDE_CODE = '/icons/claude-code-logo.png'
-const CODEX = '/icons/ai/codex.svg'
-const HERMES = '/icons/ai/hermes.svg'
+/** Verified tool marks from public/icons supporting Nash's actual stack. */
+const REACT = '/icons/ai/react.svg'
+const VITE = '/icons/ai/vite.svg'
+const TAILWIND = '/icons/ai/tailwindcss.svg'
+const POSTGRES = '/icons/ai/postgresql.svg'
+const GITHUB = '/icons/ai/github.svg'
 const PLAY = '/icons/ai/googleplay.svg'
 const CHROME = '/icons/ai/googlechrome.svg'
 const EXPO = '/icons/ai/expo.svg'
 
-const WF_SHOTS = ['project-1.jpg', 'project-2.jpg', 'project-3.jpg', 'project-4.jpg'].map(
-  (f) => `/placeholders/${f}`,
-)
+const WF_SHOTS = [
+  'project-preview-myabn.jpg',
+  'project-preview-gpm.jpg',
+  'project-preview-powercon.jpg',
+].map((f) => `/placeholders/${f}`)
 
 const FUNNEL_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0]].filter(Boolean)
 const thumbSrc = (f: Funnel) => `/${f.dir ?? 'funnels'}/thumbs/${f.file.replace('.html', '.jpeg')}`
 
-const APP_SHOTS = [
-  ...mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s),
-  '/placeholders/extension-1.jpg',
-  '/placeholders/extension-2.jpg',
-]
-
-const BUILD_DESC = 'PLACEHOLDER - tell me what to put here: two lines on what this project is and the result it got.'
+const APP_SHOTS = mobileApps.map((a) => a.imageSrc).filter((s): s is string => !!s)
 
 /** The three featured builds: each its own card in the stack, each its own
  *  pop-up. */
 const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Placeholder category', title: 'Featured Project One', desc: BUILD_DESC, Icon: () => <Ticket size={20} weight="duotone" />, logos: [GHL], eyebrow: 'Featured build', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'ai', index: '04', kicker: 'Placeholder category', title: 'Featured Project Two', desc: BUILD_DESC, Icon: () => <Robot size={20} weight="duotone" />, logos: [CLAUDE_CODE], eyebrow: 'Featured build', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'ai', index: '05', kicker: 'Placeholder category', title: 'Featured Project Three', desc: BUILD_DESC, Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Featured build', Section: WorkflowPanel, Preview: () => null },
+  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Workforce Portal', title: 'MYABN Portal', desc: 'Internal workforce access, timekeeping, and community platform.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [REACT, VITE, POSTGRES], eyebrow: 'Operational Portal', Section: TicketingPanel, Preview: () => null },
+  { id: 'framework', cat: 'apps', index: '04', kicker: 'Flow Utility', title: 'ABN GPM Calculator', desc: 'Duration-based flow rate calculation and deepwell monitoring.', Icon: () => <Robot size={20} weight="duotone" />, logos: [REACT, VITE], eyebrow: 'Internal Utility', Section: FrameworkPanel, Preview: () => null },
+  { id: 'workflow', cat: 'apps', index: '05', kicker: 'Telemetry Logsheet', title: 'ABN PowerCon', desc: 'Utility power reading comparisons and equipment logsheets.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [REACT, VITE], eyebrow: 'Monitoring System', Section: WorkflowPanel, Preview: () => null },
 ]
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
@@ -99,8 +96,8 @@ function WorkflowsPreview() {
 function PlanPreview() {
   return (
     <div className="bento__media bento__doc" aria-hidden="true">
-      <span className="bento__doc-eyebrow">Placeholder document</span>
-      <span className="bento__doc-title">Your document title here.</span>
+      <span className="bento__doc-eyebrow">Project Architecture</span>
+      <span className="bento__doc-title">Workflow Implementation Plan</span>
       <span className="bento__doc-flow">
         <i>Step</i>
         <i>Step</i>
@@ -162,11 +159,11 @@ function AppsPreview() {
 }
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Project Title', desc: 'PLACEHOLDER - tell me what to put here: what these screens show.', Icon: FlowIcon, logos: [GHL], eyebrow: 'Screenshots', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
-  { id: 'plan', cat: 'work', index: '02', title: 'Sample Document', desc: 'PLACEHOLDER - tell me what to put here: the document this opens.', Icon: PlanIcon, logos: [GHL], eyebrow: 'Sample document', Section: PlanPanel, Preview: PlanPreview },
-  { id: 'funnels', cat: 'sites', index: '06', title: 'Pages and sites', desc: 'PLACEHOLDER - the pages in this reel. Spin the reel.', Icon: GlobeIcon, logos: [GHL], eyebrow: 'Pages and sites', Section: BarrelPanel, Preview: FunnelsPreview },
-  { id: 'ai', cat: 'ai', index: '07', title: 'Your systems title here', desc: 'PLACEHOLDER - tell me what to put here: the systems you run.', Icon: SparkIcon, logos: [CLAUDE_CODE, CODEX, HERMES], eyebrow: 'Your systems', Section: AIWindow, Preview: AIPreview },
-  { id: 'apps', cat: 'apps', index: '08', title: 'Apps and tools', desc: 'PLACEHOLDER - tell me what to put here: the apps and tools you ship.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Your apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
+  { id: 'workflows', cat: 'work', index: '01', title: 'Operational Workflows', desc: 'Real production workflows from MYABN, ABN GPM Calculator, and ABN PowerCon for shift timekeeping, flow formulas, and utility telemetry.', Icon: FlowIcon, logos: [REACT, VITE], eyebrow: 'Production Workflows', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
+  { id: 'plan', cat: 'work', index: '02', title: 'Project Structure', desc: 'Planning and interface patterns used to turn a workflow into a usable application.', Icon: PlanIcon, logos: [POSTGRES, GITHUB], eyebrow: 'Structure', Section: PlanPanel, Preview: PlanPreview },
+  { id: 'funnels', cat: 'sites', index: '06', title: 'Web Applications', desc: 'Responsive application interfaces designed for real desktop and mobile workflows.', Icon: GlobeIcon, logos: [REACT, TAILWIND], eyebrow: 'Web Apps', Section: BarrelPanel, Preview: FunnelsPreview },
+  { id: 'ai', cat: 'ai', index: '07', title: 'Core Tech Stack', desc: 'React, TypeScript, Vite, Supabase, PostgreSQL, Firebase, Capacitor, and Vercel across the project work.', Icon: SparkIcon, logos: [REACT, VITE, POSTGRES], eyebrow: 'Tech Stack', Section: AIWindow, Preview: AIPreview },
+  { id: 'apps', cat: 'apps', index: '08', title: 'Production Applications', desc: 'MYABN, ABN GPM Calculator, and ABN PowerCon — practical applications built around real operational workflows.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Production Apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
 ]
 
 /** The icon tile, or the real marks stacked horizontally in its place. */
@@ -300,9 +297,11 @@ export default function ProjectsGrid() {
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">Projects</span>
         <h1 className="pgrid__title" id="projects-title">
-          Your projects headline goes right here.
+          Web Apps, Utilities & Operational Systems
         </h1>
-        <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
+        <p className="pgrid__lede">
+          A selection of practical software projects covering employee tools, operational calculators, monitoring systems, and database-backed applications.
+        </p>
       </header>
 
       {phone && (
