@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/projects</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/projects</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/services</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/showcase</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/showcase</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/testimonials</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/testimonials</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/about</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/contact</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/privacy</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://myfolio-magbanua.vercel.app/terms</loc>
+    <loc>https://aurelio-magbanua-folio.vercel.app/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

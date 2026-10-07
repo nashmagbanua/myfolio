@@ -68,7 +68,7 @@ export function useFunnelModal() {
               <span className="funnels__modal-light funnels__modal-light--green" />
             </div>
             <div className="funnels__modal-url" aria-hidden="true">
-              <span className="funnels__modal-url-scheme">myfolio-magbanua.vercel.app</span>
+              <span className="funnels__modal-url-scheme">aurelio-magbanua-folio.vercel.app</span>
               <span className="funnels__modal-url-path">/concepts/{funnel.label.toLowerCase().replace(/\s+/g, '-')}</span>
             </div>
             <div className="funnels__modal-actions">
