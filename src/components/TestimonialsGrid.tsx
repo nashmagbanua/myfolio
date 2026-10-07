@@ -36,9 +36,9 @@ const CLIPS: Clip[] = [
   {
     id: 'clip-1',
     index: '01',
-    src: '',
+    src: '/videos/walkthrough-1.mp4',
     poster: '/placeholders/testimonial-1.jpg',
-    duration: 'Preview',
+    duration: '0:05',
     kicker: 'Engineering Walkthrough',
     width: 720,
     height: 1080,
@@ -46,9 +46,9 @@ const CLIPS: Clip[] = [
   {
     id: 'clip-2',
     index: '02',
-    src: '',
+    src: '/videos/walkthrough-2.mp4',
     poster: '/placeholders/testimonial-2.jpg',
-    duration: 'Preview',
+    duration: '0:05',
     kicker: 'System Demonstration',
     width: 720,
     height: 1080,
