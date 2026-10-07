@@ -173,5 +173,9 @@ function SingleAppPanel({ app }: { app: AppProject }) {
 }
 
 export const TicketingPanel = () => <SingleAppPanel app={mobileApps[0]} />
-export const FrameworkPanel = () => <SingleAppPanel app={mobileApps[1]} />
-export const WorkflowPanel = () => <SingleAppPanel app={mobileApps[2]} />
+export const CoalDumpingPanel = () => <SingleAppPanel app={mobileApps[1]} />
+export const ChemicalTracPanel = () => <SingleAppPanel app={mobileApps[2]} />
+export const CoalDeliveryPanel = () => <SingleAppPanel app={mobileApps[3]} />
+export const CoalyardMappingPanel = () => <SingleAppPanel app={mobileApps[4]} />
+export const FrameworkPanel = () => <SingleAppPanel app={mobileApps[5]} />
+export const WorkflowPanel = () => <SingleAppPanel app={mobileApps[6]} />

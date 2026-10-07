@@ -43,7 +43,7 @@ const OFFERS = [
 ] as const
 
 const CLIENTS = [
-  { name: 'MYABN Portal', role: 'Workforce Community & Access', work: 'React · Supabase · Capacitor', logo: '/icons/ai/react.svg' },
+  { name: 'MY PORTAL', role: 'Workforce Community & Access', work: 'React · Supabase · Capacitor', logo: '/icons/ai/react.svg' },
   { name: 'GPM Calculator', role: 'Operational Flow Utility', work: 'React · TS · Supabase', logo: '/icons/ai/vite.svg' },
   { name: 'PowerCon System', role: 'Utility Power Readings', work: 'React · Firebase · Vite' },
 ]

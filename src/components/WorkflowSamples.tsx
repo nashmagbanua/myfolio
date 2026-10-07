@@ -1,23 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
-import { X } from '@/components/slab'
-
-/**
- * WorkflowSamples
- *
- * A horizontally scrolling marquee of project screenshots. The strip loops
- * seamlessly; clicking any frame opens the full image in a faux macOS window
- * over the page. Swap the images in SAMPLES for your own.
- *
- * Marquee: the list is duplicated so the CSS keyframe can translate -50% and
- * land the reset on a seamless seam. The track pauses on hover/focus so frames
- * are easy to click. The duplicate half is aria-hidden + removed from the tab
- * order so screen readers and keyboard users see each frame once.
- *
- * Modal: createPortal to body (escapes any transformed ancestor), Escape +
- * backdrop close, body scroll lock, focus moved into the dialog and returned to
- * the trigger on close - the same pattern as the other in-page previews.
- */
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { createPortal } from "react-dom"
+import { X } from "@/components/slab"
 
 type Sample = {
   file: string
@@ -29,32 +12,53 @@ type Sample = {
 
 const SAMPLES: Sample[] = [
   {
-    file: 'project-preview-myabn.jpg',
-    label: 'Workforce Timekeeping & Attendance',
-    app: 'MYABN Portal',
-    tag: 'Portal & PWA',
-    description: 'Operator shift check-in, attendance verification, visitor access logs, and internal bulletins.',
+    file: "project-preview-myportal.jpg",
+    label: "Workforce Timekeeping & Attendance",
+    app: "MY PORTAL",
+    tag: "Portal & PWA",
+    description: "Operator shift check-in, attendance verification, visitor access logs, and internal bulletins.",
   },
   {
-    file: 'project-preview-gpm.jpg',
-    label: 'Flow Rate & Duration Calculation Engine',
-    app: 'ABN GPM Calculator',
-    tag: 'Internal Tool',
-    description: 'Duration-based mathematical calculation, CWS & Deepwell telemetry checks, and log persistence.',
+    file: "project-preview-coaldumping.jpg",
+    label: "Boiler Feed Rate & Coal Dumping Telemetry",
+    app: "Coal Dumping",
+    tag: "Boiler Systems",
+    description: "Tracking tons dumped, boiler intake rate, combustion logs, and live furnace telemetry.",
   },
   {
-    file: 'project-preview-powercon.jpg',
-    label: 'Telemetry & Equipment Power Logsheet',
-    app: 'ABN PowerCon',
-    tag: 'Utility Monitor',
-    description: 'Equipment load monitoring, present vs. previous kWh difference tracking, and shift logsheets.',
+    file: "project-preview-chemicaltrac.jpg",
+    label: "Chemical Usage & Stock Sync Engine",
+    app: "Chemical Trac",
+    tag: "Chemical Ops",
+    description: "Total chemical consumption tracking per department and area with stock reorder sync.",
   },
   {
-    file: 'project-preview-myabn.jpg',
-    label: 'Employee Community & Announcement Feed',
-    app: 'MYABN Portal',
-    tag: 'Mobile & Web',
-    description: 'Unified company bulletin, real-time notifications, comment threads, and cross-team mentions.',
+    file: "project-preview-coaldelivery.jpg",
+    label: "Weighbridge Net Weight & Delivery Records",
+    app: "Coal Delivery",
+    tag: "Logistics Log",
+    description: "Truck gross/tare weighing records, quality laboratory moisture logs, and intake batches.",
+  },
+  {
+    file: "project-preview-coalyardmapping.jpg",
+    label: "Stockpile FIFO Queue & Yard Grid Map",
+    app: "Auto Coalyard Mapping FIFO",
+    tag: "Yard Mapping",
+    description: "First-In First-Out bay visualization, bunker rotation planning, and heating prevention.",
+  },
+  {
+    file: "project-preview-gpm.jpg",
+    label: "Flow Rate & Duration Calculation Engine",
+    app: "GPM Calculator",
+    tag: "Internal Tool",
+    description: "Duration-based mathematical calculation, CWS & Deepwell telemetry checks, and log persistence.",
+  },
+  {
+    file: "project-preview-powercon.jpg",
+    label: "Telemetry & Equipment Power Logsheet",
+    app: "PowerCon",
+    tag: "Utility Monitor",
+    description: "Equipment load monitoring, present vs. previous kWh difference tracking, and shift logsheets.",
   },
 ]
 
@@ -62,7 +66,6 @@ const srcOf = (s: Sample) => `/placeholders/${encodeURIComponent(s.file)}`
 
 export default function WorkflowSamples() {
   const doubled = useMemo(() => [...SAMPLES, ...SAMPLES], [])
-
   const [active, setActive] = useState<Sample | null>(null)
   const lastTriggerRef = useRef<HTMLElement | null>(null)
   const closeRef = useRef<HTMLButtonElement | null>(null)
@@ -80,21 +83,21 @@ export default function WorkflowSamples() {
   useEffect(() => {
     if (!active) return
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') close()
+      if (e.key === "Escape") close()
     }
-    document.addEventListener('keydown', onKey)
-    document.body.style.overflow = 'hidden'
+    document.addEventListener("keydown", onKey)
+    document.body.style.overflow = "hidden"
     requestAnimationFrame(() => closeRef.current?.focus())
     return () => {
-      document.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
+      document.removeEventListener("keydown", onKey)
+      document.body.style.overflow = ""
     }
   }, [active, close])
 
   return (
     <section className="wfs" id="workflow-samples" aria-labelledby="wfs-heading" data-reveal>
       <p className="wfs__caption" id="wfs-heading">
-        Actual production workflows from MYABN, ABN GPM Calculator, and ABN PowerCon — showing shift timekeeping, flow rate calculations, and telemetry logsheets.
+        Actual production workflows from MY PORTAL, Coal Dumping, Chemical Trac, Coal Delivery, Auto Coalyard Mapping FIFO, and telemetry systems.
       </p>
 
       <div className="wfs__strip">
@@ -124,7 +127,7 @@ export default function WorkflowSamples() {
                 <img
                   className="wfs__img"
                   src={srcOf(s)}
-                  alt={clone ? '' : `${s.app} - ${s.label} screenshot`}
+                  alt={clone ? "" : `${s.app} - ${s.label} screenshot`}
                   loading="lazy"
                   decoding="async"
                 />

@@ -71,7 +71,7 @@ type Client = {
 const CLIENTS: Client[] = [
   {
     index: '01',
-    name: 'MYABN Portal',
+    name: 'MY PORTAL',
     role: 'Internal Workforce System',
     daily:
       'Unified employee platform bringing together workforce access management, attendance timekeeping, visitor records, and community feed updates.',
@@ -81,7 +81,7 @@ const CLIENTS: Client[] = [
   },
   {
     index: '02',
-    name: 'ABN GPM Calculator',
+    name: 'GPM Calculator',
     role: 'Operational Flow Utility',
     daily:
       'Calculation utility built for operators to measure water production flow rates using duration-based formulas, CWS status indicators, and record logging.',
@@ -91,7 +91,7 @@ const CLIENTS: Client[] = [
   },
   {
     index: '03',
-    name: 'ABN PowerCon',
+    name: 'PowerCon',
     role: 'Equipment Telemetry System',
     daily:
       'Utility monitoring application for logging, reviewing, and comparing power and equipment readings over time with automated delta tracking.',

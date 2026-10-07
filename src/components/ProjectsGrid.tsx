@@ -55,7 +55,11 @@ const CHROME = '/icons/ai/googlechrome.svg'
 const EXPO = '/icons/ai/expo.svg'
 
 const WF_SHOTS = [
-  'project-preview-myabn.jpg',
+  'project-preview-myportal.jpg',
+  'project-preview-coaldumping.jpg',
+  'project-preview-chemicaltrac.jpg',
+  'project-preview-coaldelivery.jpg',
+  'project-preview-coalyardmapping.jpg',
   'project-preview-gpm.jpg',
   'project-preview-powercon.jpg',
 ].map((f) => `/placeholders/${f}`)
@@ -68,9 +72,9 @@ const APP_SHOTS = mobileApps.map((a) => a.imageSrc).filter((s): s is string => !
 /** The three featured builds: each its own card in the stack, each its own
  *  pop-up. */
 const BUILDS: Project[] = [
-  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Workforce Portal', title: 'MYABN Portal', desc: 'Internal workforce access, timekeeping, and community platform.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [REACT, VITE, POSTGRES], eyebrow: 'Operational Portal', Section: TicketingPanel, Preview: () => null },
-  { id: 'framework', cat: 'apps', index: '04', kicker: 'Flow Utility', title: 'ABN GPM Calculator', desc: 'Duration-based flow rate calculation and deepwell monitoring.', Icon: () => <Robot size={20} weight="duotone" />, logos: [REACT, VITE], eyebrow: 'Internal Utility', Section: FrameworkPanel, Preview: () => null },
-  { id: 'workflow', cat: 'apps', index: '05', kicker: 'Telemetry Logsheet', title: 'ABN PowerCon', desc: 'Utility power reading comparisons and equipment logsheets.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [REACT, VITE], eyebrow: 'Monitoring System', Section: WorkflowPanel, Preview: () => null },
+  { id: 'ticketing', cat: 'work', index: '03', kicker: 'Workforce Portal', title: 'MY PORTAL Portal', desc: 'Internal workforce access, timekeeping, and community platform.', Icon: () => <Ticket size={20} weight="duotone" />, logos: [REACT, VITE, POSTGRES], eyebrow: 'Operational Portal', Section: TicketingPanel, Preview: () => null },
+  { id: 'framework', cat: 'apps', index: '04', kicker: 'Flow Utility', title: 'GPM Calculator', desc: 'Duration-based flow rate calculation and deepwell monitoring.', Icon: () => <Robot size={20} weight="duotone" />, logos: [REACT, VITE], eyebrow: 'Internal Utility', Section: FrameworkPanel, Preview: () => null },
+  { id: 'workflow', cat: 'apps', index: '05', kicker: 'Telemetry Logsheet', title: 'PowerCon', desc: 'Utility power reading comparisons and equipment logsheets.', Icon: () => <FlowArrow size={20} weight="duotone" />, logos: [REACT, VITE], eyebrow: 'Monitoring System', Section: WorkflowPanel, Preview: () => null },
 ]
 
 const leaves = (n: StackNode): StackNode[] => (n.children?.length ? n.children.flatMap(leaves) : [n])
@@ -159,11 +163,11 @@ function AppsPreview() {
 }
 
 const PROJECTS: Project[] = [
-  { id: 'workflows', cat: 'work', index: '01', title: 'Operational Workflows', desc: 'Real production workflows from MYABN, ABN GPM Calculator, and ABN PowerCon for shift timekeeping, flow formulas, and utility telemetry.', Icon: FlowIcon, logos: [REACT, VITE], eyebrow: 'Production Workflows', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
+  { id: 'workflows', cat: 'work', index: '01', title: 'Operational Workflows', desc: 'Real production workflows from MY PORTAL, GPM Calculator, and PowerCon for shift timekeeping, flow formulas, and utility telemetry.', Icon: FlowIcon, logos: [REACT, VITE], eyebrow: 'Production Workflows', Section: AutomationsPanel, span: 2, Preview: WorkflowsPreview },
   { id: 'plan', cat: 'work', index: '02', title: 'Project Structure', desc: 'Planning and interface patterns used to turn a workflow into a usable application.', Icon: PlanIcon, logos: [POSTGRES, GITHUB], eyebrow: 'Structure', Section: PlanPanel, Preview: PlanPreview },
   { id: 'funnels', cat: 'sites', index: '06', title: 'Web Applications', desc: 'Responsive application interfaces designed for real desktop and mobile workflows.', Icon: GlobeIcon, logos: [REACT, TAILWIND], eyebrow: 'Web Apps', Section: BarrelPanel, Preview: FunnelsPreview },
   { id: 'ai', cat: 'ai', index: '07', title: 'Core Tech Stack', desc: 'React, TypeScript, Vite, Supabase, PostgreSQL, Firebase, Capacitor, and Vercel across the project work.', Icon: SparkIcon, logos: [REACT, VITE, POSTGRES], eyebrow: 'Tech Stack', Section: AIWindow, Preview: AIPreview },
-  { id: 'apps', cat: 'apps', index: '08', title: 'Production Applications', desc: 'MYABN, ABN GPM Calculator, and ABN PowerCon — practical applications built around real operational workflows.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Production Apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
+  { id: 'apps', cat: 'apps', index: '08', title: 'Production Applications', desc: 'MY PORTAL, GPM Calculator, and PowerCon — practical applications built around real operational workflows.', Icon: DeviceIcon, logos: [PLAY, EXPO, CHROME], eyebrow: 'Production Apps', Section: AppsWindow, span: 2, Preview: AppsPreview },
 ]
 
 /** The icon tile, or the real marks stacked horizontally in its place. */

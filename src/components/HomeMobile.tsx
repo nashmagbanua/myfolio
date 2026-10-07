@@ -45,7 +45,7 @@ export function HomeStats() {
 }
 
 const TILES = [
-  { n: '01', label: 'Projects', to: '/projects', title: 'Web Apps & Utilities', desc: 'Internal portals, calculators, and monitoring tools.', img: '/placeholders/project-preview-myabn.jpg' },
+  { n: '01', label: 'Projects', to: '/projects', title: 'Web Apps & Utilities', desc: 'Internal portals, calculators, and monitoring tools.', img: '/placeholders/project-preview-myportal.jpg' },
   { n: '02', label: 'Services', to: '/services', title: 'Areas of Focus', desc: 'Web applications, database storage, and automated workflows.', Icon: Stack, dark: true },
   { n: '03', label: 'Showcase', to: '/showcase', title: 'Interactive Showcase', desc: 'Hands-on workflow logic and responsive UI architecture.', Icon: Coffee, dark: true, accent: true },
   { n: '04', label: 'Testimonials', to: '/testimonials', title: 'Operational Notes', desc: 'Production applications built around real workflows.', img: '/placeholders/project-preview-powercon.jpg' },
